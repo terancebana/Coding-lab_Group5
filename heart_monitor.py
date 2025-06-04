@@ -23,7 +23,7 @@ def log_data():
             heart_rate = random.randint(60, 100)
             with open(LOG_FILE, "a") as f:
                 f.write(f"{timestamp} {device} {heart_rate}\n")
-        time.sleep(1)
+        time.sleep(1)  
 
 def start():
     pid = os.fork()
