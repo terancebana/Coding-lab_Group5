@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# global variables
-chosen_dir=""
-
-# function for getting the directory from user choice i.e: 1,2,3
+# function for updating the chosen directory 
 get_dir_from_choice() {
    case $1 in                      
       1)
@@ -28,10 +25,31 @@ read choice
 # updating chosen_dir variable
 get_dir_from_choice $choice
 
-echo $chosen_dir
-if [ $chosen_dir != "invalid directory" ]; then       
-   file_count=$(ls -1 $chosen_dir | wc -l)
-   echo "There are $file_count in directory $chosen_dir"
+if [ "$chosen_dir" != "invalid directory" ]; then   
+   entries_count=$(ls -1 $chosen_dir | wc -l)
+   first_entry=$(ls $chosen_dir | head -n 1)
+   last_entry=$(ls $chosen_dir | tail -n 1)
+
+   # splitting the filename into an array over character "." 
+   IFS='.' read -a first_file_parts <<< "$first_entry"
+   IFS='.' read -a last_file_parts <<< "$last_entry"
+   first_entry_name=${first_file_parts[0]}
+   last_entry_name=${first_file_parts[0]}
+   
+   # splitting the filename into an array over character "_"
+   IFS='_' read -a first_entry_names <<< "$first_entry_name"
+   IFS='_' read -a last_entry_names <<< "$last_entry_name"
+
+   # actual timestamps for entries
+   first_entry_timestamps="${first_entry_names[-2]} ${first_entry_names[-1]}"
+   last_entry_timestamps="${last_entry_names[-2]} ${last_entry_names[-1]}"
+   
+   # printing the results
+   echo "There are $entries_count entries in $chosen_dir"
+   echo "first entry timestamp: $first_entry_timestamps"
+   echo "last entry timestamp: $last_entry_timestamps"
+else
+   echo "Incorrect choice, the valid choices are: 1,2,3"   
 fi
 
 
