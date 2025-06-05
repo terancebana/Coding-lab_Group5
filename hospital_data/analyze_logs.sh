@@ -54,4 +54,24 @@ awk '{print $3}' "$LOG_PATH" | sort | uniq -c | while read -r count device; do
     echo "  $device: $count readings" >> "$ANALYSIS_REPORT_FILE"
 done
 
-# redirect results to the report file
+# redirect results to the report file2
+
+echo "" >> "$ANALYSIS_REPORT_FILE"
+echo "Total Readings:" >> "$ANALYSIS_REPORT_FILE"
+total_readings=$(wc -l < "$LOG_PATH")
+echo "  Total number of readings: $total_readings" >> "$ANALYSIS_REPORT_FILE"
+
+if [ -s "$LOG_PATH" ]; then
+    FIRST_ENTRY_TIMESTAMP=$(head -n 1 "$LOG_PATH" | awk '{print $1, $2}')
+    LAST_ENTRY_TIMESTAMP=$(tail -n 1 "$LOG_PATH" | awk '{print $1, $2}')
+
+    echo "" >> "$ANALYSIS_REPORT_FILE"
+    echo "Time Range:" >> "$ANALYSIS_REPORT_FILE"
+    echo "  First entry timestamp: $FIRST_ENTRY_TIMESTAMP" >> "$ANALYSIS_REPORT_FILE"
+    echo "  Last entry timestamp: $LAST_ENTRY_TIMESTAMP" >> "$ANALYSIS_REPORT_FILE"
+else
+    echo "Log file is empty. No timestamps to report." >> "$ANALYSIS_REPORT_FILE"
+fi
+
+echo "---------------------------------------------------" >> "$ANALYSIS_REPORT_FILE"
+echo "Analysis results appended to $ANALYSIS_REPORT_FILE"

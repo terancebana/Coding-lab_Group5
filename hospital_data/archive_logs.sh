@@ -56,3 +56,4 @@ case "$choice" in
 											      echo "Error: Could not create new log file."
 											        exit 1
 										fi
+
