@@ -1,0 +1,47 @@
+
+--- Analysis Report for Heart Rate Log ---
+Date and Time of Analysis: 2025-06-06 17:05:57
+Analyzing: /home/sam/dev-stuff/projects/Coding-lab_Group5/hospital_data/active_logs/heart_rate_log.log
+---------------------------------------------------
+Device Occurrences:
+  HeartRate_Monitor_A: 40 readings
+  HeartRate_Monitor_B: 40 readings
+
+Total Readings:
+  Total number of readings: 80
+
+Time Range:
+  First entry timestamp: 2025-06-06 17:05:17
+  Last entry timestamp: 2025-06-06 17:05:56
+---------------------------------------------------
+
+--- Analysis Report for Temperature Log ---
+Date and Time of Analysis: 2025-06-06 17:06:00
+Analyzing: /home/sam/dev-stuff/projects/Coding-lab_Group5/hospital_data/active_logs/temperature_log.log
+---------------------------------------------------
+Device Occurrences:
+  Temp_Recorder_A: 40 readings
+  Temp_Recorder_B: 40 readings
+
+Total Readings:
+  Total number of readings: 80
+
+Time Range:
+  First entry timestamp: 2025-06-06 17:05:21
+  Last entry timestamp: 2025-06-06 17:06:00
+---------------------------------------------------
+
+--- Analysis Report for Water Usage Log ---
+Date and Time of Analysis: 2025-06-06 17:06:02
+Analyzing: /home/sam/dev-stuff/projects/Coding-lab_Group5/hospital_data/active_logs/water_usage_log.log
+---------------------------------------------------
+Device Occurrences:
+  Water_Consumption_Meter: 33 readings
+
+Total Readings:
+  Total number of readings: 33
+
+Time Range:
+  First entry timestamp: 2025-06-06 17:05:30
+  Last entry timestamp: 2025-06-06 17:06:02
+---------------------------------------------------
