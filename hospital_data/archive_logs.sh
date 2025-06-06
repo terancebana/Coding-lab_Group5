@@ -48,3 +48,9 @@ if [ ! -d "$ARCHIVE_TARGET_DIR" ]; then
 fi
 
 echo "Archiving ${LOG_NAME}.log..."
+
+#EDWARD
+TIMESTAMP=$(date +"%Y-%m-%d_%H:%M:%S")
+NEW_ARCHIVED_FILENAME="${LOG_NAME}_${TIMESTAMP}.log"
+DESTINATION_PATH="$ARCHIVE_TARGET_DIR/$NEW_ARCHIVED_FILENAME"
+
