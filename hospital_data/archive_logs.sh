@@ -32,4 +32,18 @@ esac
 [ -d "$ACTIVE_LOGS_DIR" ] || handle_error "Active logs directory not found: $ACTIVE_LOGS_DIR"
 [ -d "$ARCHIVED_LOGS_BASE_DIR" ] || handle_error "Archived logs base directory not found: $ARCHIVED_LOGS_BASE_DIR"
 
+ACTIVE_LOG_FILE="$ACTIVE_LOGS_DIR/${LOG_NAME}.log"
+ARCHIVE_TARGET_DIR="$ARCHIVED_LOGS_BASE_DIR/$ARCHIVE_SUBDIR"
 
+
+#TERANCE
+if [ ! -f "$ACTIVE_LOG_FILE" ]; then
+    handle_error "Missing log file: $ACTIVE_LOG_FILE. Please make sure that the monitor is running." [cite: 5]
+fi
+
+if [ ! -d "$ARCHIVE_TARGET_DIR" ]; then
+    echo "Creating archive directory: $ARCHIVE_TARGET_DIR"
+    mkdir -p "$ARCHIVE_TARGET_DIR" || handle_error "Failed to create archive directory: $ARCHIVE_TARGET_DIR" [cite: 5]
+fi
+
+echo "Archiving ${LOG_NAME}.log..."
