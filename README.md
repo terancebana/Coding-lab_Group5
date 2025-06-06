@@ -36,5 +36,6 @@ The Automated log management system, was a classroom activity. We did this as gr
 - **Dianah Shimwa**
 - **Terance Cyuzuzo**
 - **Samuel Kabera**
+-**Given Edward**
 
 You can checkout our github usernames in the contributors area
