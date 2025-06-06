@@ -32,11 +32,11 @@ esac
 [ -d "$ACTIVE_LOGS_DIR" ] || handle_error "Active logs directory not found: $ACTIVE_LOGS_DIR"
 [ -d "$ARCHIVED_LOGS_BASE_DIR" ] || handle_error "Archived logs base directory not found: $ARCHIVED_LOGS_BASE_DIR"
 
-#EDWARD
+
 ACTIVE_LOG_FILE="$ACTIVE_LOGS_DIR/${LOG_NAME}.log"
 ARCHIVE_TARGET_DIR="$ARCHIVED_LOGS_BASE_DIR/$ARCHIVE_SUBDIR"
 
-#TERANCE
+
 if [ ! -f "$ACTIVE_LOG_FILE" ]; then
     handle_error "Missing log file: $ACTIVE_LOG_FILE. Please make sure that the monitor is running." [cite: 5]
 fi
@@ -48,12 +48,12 @@ fi
 
 echo "Archiving ${LOG_NAME}.log..."
 
-#EDWARD
+
 TIMESTAMP=$(date +"%Y-%m-%d_%H:%M:%S")
 NEW_ARCHIVED_FILENAME="${LOG_NAME}_${TIMESTAMP}.log"
 DESTINATION_PATH="$ARCHIVE_TARGET_DIR/$NEW_ARCHIVED_FILENAME"
 
-#EDWARD
+
 TIMESTAMP=$(date +"%Y-%m-%d_%H:%M:%S")
 NEW_ARCHIVED_FILENAME="${LOG_NAME}_${TIMESTAMP}.log"
 DESTINATION_PATH="$ARCHIVE_TARGET_DIR/$NEW_ARCHIVED_FILENAME"
