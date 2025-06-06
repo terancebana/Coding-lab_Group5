@@ -5,6 +5,11 @@ BASE_DIR="$(pwd)"
 ACTIVE_LOGS_DIR="$BASE_DIR/active_logs"
 ARCHIVED_LOGS_BASE_DIR="$BASE_DIR/archived_logs"
 
+handle_error() {
+    echo "Error: $1" >&2
+    exit 1
+}
+
 echo "Select log to archive:"
 echo "1) Heart Rate (heart_rate_log.log)"
 echo "2) Temperature (temperature_log.log)"
