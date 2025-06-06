@@ -62,3 +62,9 @@ DESTINATION_PATH="$ARCHIVE_TARGET_DIR/$NEW_ARCHIVED_FILENAME"
 TIMESTAMP=$(date +"%Y-%m-%d_%H:%M:%S")
 NEW_ARCHIVED_FILENAME="${LOG_NAME}_${TIMESTAMP}.log"
 DESTINATION_PATH="$ARCHIVE_TARGET_DIR/$NEW_ARCHIVED_FILENAME"
+
+mv "$ACTIVE_LOG_FILE" "$DESTINATION_PATH" || handle_error "Failed to move log file." [cite: 2, 4]
+
+touch "$ACTIVE_LOG_FILE" || handle_error "Failed to create new empty log file." [cite: 4]
+
+echo "Successfully archived to $DESTINATION_PATH" [cite: 4]
